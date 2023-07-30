@@ -13,7 +13,7 @@ export class ContactService {
       throw new Error('Method not implemented.');
       return !!localStorage.getItem('currentUser') && localStorage.getItem('isAdmin') === 'true';
   }
-  private serverUrl: string = 'http://localhost:9000'; // Replace with the actual server URL
+  private serverUrl: string = 'https://json-data-2m2h.onrender.com/'; // Replace with the actual server URL
   private authenticatedUser: { username: string, password: string } = { username: 'demo', password: 'password' ,};
   private isAuthenticated: boolean = false;
  
