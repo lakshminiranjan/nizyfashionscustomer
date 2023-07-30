@@ -1,0 +1,50 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p class="h3 fw-bold text-danger">View Contacts</p>
+            <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi, obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa! Harum, eum blanditiis?</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" *ngIf="!loading && isNotEmpty()">
+    <div class="row align-items-center">
+        <div class="col-sm-4">
+            <img [src]="contact.photo" alt="" class="contact-img-big"> <!-- Use the 'contact.photo' to handle null values -->
+        </div>
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-danger">Name: <span class="fw-bold">{{contact.name}}</span></li>
+                <li class="list-group-item list-group-item-danger">Mobile: <span class="fw-bold">{{contact.mobile}}</span></li>
+                <li class="list-group-item list-group-item-danger">Email: <span class="fw-bold">{{contact.email}}</span></li>
+                <li class="list-group-item list-group-item-danger">Company: <span class="fw-bold">{{contact.company}}</span></li>
+                <li class="list-group-item list-group-item-danger">Title: <span class="fw-bold">{{contact.title}}</span></li>
+                <li class="list-group-item list-group-item-danger">Group Name: <span class="fw-bold">{{group.name}}</span></li> <!-- Use 'group.name' instead of 'group?.name' since 'group' is not null or undefined here -->
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <a routerLink="/contacts/admin" class="btn btn-danger">
+                <i class="fa fa-arrow-alt-circle-left"></i> Back</a>
+        </div>
+    </div>
+</div>
+
+
