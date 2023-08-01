@@ -11,4 +11,10 @@ body{
 .contact-img-big{
     width: 200px;
     border-radius: 50%;
+}/* Add this style to position the logout button at the top right corner */
+.btn-logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
+
