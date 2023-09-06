@@ -36,8 +36,8 @@
 
                 </div>
                 <div class="mb-2">
-                    <input required="true" type="text" class="form-control" placeholder="Photo Url" [(ngModel)]="contact.photo" name="photo">
-
+                    <!-- <input required="true" type="text" class="form-control" placeholder="Photo Url" [(ngModel)]="contact.photo" name="photo"> -->
+                    <input required="true" type="file" (change)="onFileSelected($event)" class="form-control">
                 </div>
                 <div class="mb-2">
                     <input required="true" type="text" class="form-control" placeholder="Email" [(ngModel)]="contact.email" name="email">
