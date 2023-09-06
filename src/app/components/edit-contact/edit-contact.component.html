@@ -16,7 +16,10 @@
                     <input required="true" [(ngModel)]="contact.name" name="name"  [value]="contact.name" type="text" class="form-control" placeholder="Name">
                 </div>
                 <div class="mb-2">
-                    <input required="true" [(ngModel)]="contact.photo" name="photo"  [value]="contact.photo" type="text" class="form-control" placeholder="Photo Url">
+                    <!-- <input required="true" [(ngModel)]="contact.photo" name="photo"  [value]="contact.photo" type="text" class="form-control" placeholder="Photo Url"> -->
+                <input required="true" type="file" (change)="onFileSelected($event)" class="form-control">
+
+
                 </div>
                 <div class="mb-2">
                     <input required="true" [(ngModel)]="contact.email" name="email"  [value]="contact.email" type="email" class="form-control" placeholder="Email">
