@@ -56,5 +56,12 @@ public submitUpdate() {
   }
 }
 
+  public selectedFile: File | null = null;
+
+onFileSelected(event: any) {
+  this.selectedFile = event.target.files[0] as File;
+}
+
+
 
 }
