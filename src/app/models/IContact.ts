@@ -2,7 +2,7 @@ export interface IContact {
     id? : string;
     name : string;
     email : string;
-    photo : string;
+    photo : File | string | null;
     mobile : number;
     company : string;
     title : string;
