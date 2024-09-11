@@ -1,18 +1,26 @@
-
 <div class="container-sm mt-3">
     <div class="row">
         <div class="col">
-            <p class="h3 text-danger fw-bold">NG Contacts
-                <a routerLink="/contacts/add" class="btn btn-danger btn-sm"><i class="fa fa-plus-circle"></i> New</a>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger btn-sm d-flex align-items-center" (click)="logout()">
+                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                </button>
+            </div>
+            <p class="h3 text-danger fw-bold">
+                NG Contacts
+                <a routerLink="/contacts/add" class="btn btn-danger btn-sm">
+                    <i class="fa fa-plus-circle"></i> New
+                </a>
             </p>
-            <button class="btn btn-danger btn-sm" (click)="logout()">Logout</button>
-            <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus fugiat, doloribus facilis
-                quaerat illum nostrum mollitia quidem. Repudiandae impedit natus provident, odio nemo quia eligendi similique
-                recusandae possimus, quam dolorum.</p>
+            <p class="fst-italic">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus fugiat, doloribus facilis
+                quaerat illum nostrum mollitia quidem. Repudiandae impedit natus provident, odio nemo quia
+                eligendi similique recusandae possimus, quam dolorum.
+            </p>
 
             <form (submit)="searchContacts()">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-sm-6 col-12">
                         <div class="row">
                             <div class="col">
                                 <input type="text" class="form-control" placeholder="Search User" [(ngModel)]="searchTerm" name="searchTerm">
@@ -28,7 +36,7 @@
     </div>
 </div>
 
-<!-- Loaading-Spinnner -->
+<!-- Loading Spinner -->
 <div *ngIf="loading">
     <app-spinner></app-spinner>
 </div>
@@ -44,42 +52,41 @@
     </div>
 </div>
 
-<div class="container mt-3" *ngIf="!loading && filteredContacts.length > 0">
+<!-- Contacts List -->
+<div class="container-sm mt-3" *ngIf="!loading && filteredContacts.length > 0">
     <div class="row">
-        <div class="col-md-6" *ngFor="let contact of filteredContacts">
-            <!-- Existing code for displaying contact details -->
-        </div>
-    </div>
-</div>
-
-<div class="container mt-3" *ngIf="!loading && filteredContacts.length > 0">
-    <div class="row">
-        <div class="col-md-6 " *ngFor="let contact of filteredContacts
-        ">
+        <div class="col-md-6 col-12" *ngFor="let contact of filteredContacts">
             <div class="card list-group-item-danger shadow-lg my-2">
                 <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-sm-4">
-                            <!-- <img [src]="contact.photo" alt="" class="contact-img"> -->
+                    <div class="row align-items-center contact-card">
+                        <!-- Image Section -->
+                        <div class="col-sm-4 col-12 text-center contact-img-wrapper">
                             <img [src]="contact.photo ? contact.photo : '/assets/defaultt.png'" alt="" class="contact-img">
-
                         </div>
-                        <div class="col-sm-7">
-                            <ul class="list-group">
+
+                        <!-- Contact Details Section -->
+                        <div class="col-sm-7 col-12 contact-details justify-content-center">
+                            <ul class="list-group text-center text-sm-start justify-content-center">
                                 <li class="list-group-item">Name: <span class="fw-bold">{{contact.name}}</span></li>
                                 <li class="list-group-item">Mobile: <span class="fw-bold">{{contact.mobile}}</span></li>
                                 <li class="list-group-item">Email: <span class="fw-bold">{{contact.email}}</span></li>
                             </ul>
                         </div>
-                        <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
-                            <a routerLink="/contacts/view/{{contact.id}}" class="btn btn-warning my-1">
+
+                        <!-- Icons Section -->
+                        <div class="col-sm-1 col-12 d-flex flex-row flex-sm-row flex-lg-column flex-xxs-row justify-content-space-evenly align-items-center mt-3 mt-sm-0 icon-section">
+                            <a routerLink="/contacts/view/{{contact.id}}" class="btn btn-warning mx-1 my-1">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a routerLink="/contacts/edit/{{contact.id}}" class="btn btn-primary my-1">
+                            <a routerLink="/contacts/edit/{{contact.id}}" class="btn btn-primary mx-1 my-1">
                                 <i class="fa fa-pen"></i>
                             </a>
-                            <button class="btn btn-danger my-1" (click)="clickDeleteContact(contact.id)" data-dismiss="modal"><i class="fa fa-trash"></i></button>
+                            <button class="btn btn-danger mx-1 my-1" (click)="clickDeleteContact(contact.id)" data-dismiss="modal">
+                                <i class="fa fa-trash"></i>
+                            </button>
                         </div>
+
+
                     </div>
                 </div>
             </div>
