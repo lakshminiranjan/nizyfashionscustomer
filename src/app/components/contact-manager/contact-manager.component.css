@@ -1,0 +1,45 @@
+/* Custom media query for screens less than or equal to 991px */
+@media (max-width: 991px)  and  (min-width:100px) {
+    .contact-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Center the image in the card */
+    .contact-img-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px; /* Add some spacing below the image */
+    }
+
+    /* Vertically align the contact details and icons */
+    .contact-details,
+    .icon-section {
+        width: 100%;
+    }
+
+    .icon-section {
+        justify-content: space-evenly; /* Spread the icons evenly in the row */
+    }
+
+    .contact-details ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .contact-details li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+@media (min-width: 576px) {
+    .icon-section {
+        
+        flex-direction: row;
+           justify-content: space-evenly;
+        
+    }
+}
+
