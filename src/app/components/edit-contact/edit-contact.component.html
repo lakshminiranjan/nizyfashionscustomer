@@ -2,39 +2,62 @@
     <div class="row">
         <div class="col">
             <p class="h3 fw-bold text-danger">Edit Contacts</p>
-            <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi, obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa! Harum, eum blanditiis?</p>
+            <p class="fst-italic">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi,
+                obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa!
+                Harum, eum blanditiis?
+            </p>
         </div>
     </div>
 </div>
 
+<!-- Loading Spinner -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
+<!-- Error Message -->
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Contact Form -->
+<div class="container" *ngIf="!loading">
+    <div class="row align-items-center justify-content-center text-center text-sm-start">
+        <!-- Image Section -->
+        <div class="col-12 col-sm-4 mb-3 mb-sm-0">
+            <img [src]="contact.photo" alt="" class="contact-img-big mx-auto d-block">
+        </div>
+
+        <!-- Contact Form Section -->
+        <div class="col-12 col-sm-6 text-start">
             <form (submit)="submitUpdate()">
                 <div class="mb-2">
-                    <input required="true" [(ngModel)]="contact.name" name="name"  [value]="contact.name" type="text" class="form-control" placeholder="Name">
+                    <input required="true" [(ngModel)]="contact.name" name="name" [value]="contact.name" type="text" class="form-control" placeholder="Name">
                 </div>
                 <div class="mb-2">
-                    <!-- <input required="true" [(ngModel)]="contact.photo" name="photo"  [value]="contact.photo" type="text" class="form-control" placeholder="Photo Url"> -->
-                <input required="true" type="file" (change)="onFileSelected($event)" class="form-control">
-
-
+                    <input required="true" type="file" (change)="onFileSelected($event)" class="form-control">
                 </div>
                 <div class="mb-2">
-                    <input required="true" [(ngModel)]="contact.email" name="email"  [value]="contact.email" type="email" class="form-control" placeholder="Email">
+                    <input required="true" [(ngModel)]="contact.email" name="email" [value]="contact.email" type="email" class="form-control" placeholder="Email">
                 </div>
                 <div class="mb-2">
-                    <input required="true" [(ngModel)]="contact.mobile" name="mobile"  [value]="contact.mobile" type="number" class="form-control" placeholder="Mobile">
+                    <input required="true" [(ngModel)]="contact.mobile" name="mobile" [value]="contact.mobile" type="number" class="form-control" placeholder="Mobile">
                 </div>
                 <div class="mb-2">
-                    <input required="true" [(ngModel)]="contact.company" name="Shirt_measurements"  [value]="contact.company" type="text" class="form-control" placeholder="Shirt_measurements">
+                    <input required="true" [(ngModel)]="contact.company" name="Shirt_measurements" [value]="contact.company" type="text" class="form-control" placeholder="Shirt Measurements">
                 </div>
                 <div class="mb-2">
-                    <input required="true" [(ngModel)]="contact.title" name="Pant_measurememts"  [value]="contact.title" type="text" class="form-control" placeholder="Pant_measurements">
+                    <input required="true" [(ngModel)]="contact.title" name="Pant_measurements" [value]="contact.title" type="text" class="form-control" placeholder="Pant Measurements">
                 </div>
                 <div class="mb-2">
-                    <select required="true" [(ngModel)]="contact.groupId" name="groupId"  [value]="contact.groupId" class="form-control">
+                    <select required="true" [(ngModel)]="contact.groupId" name="groupId" [value]="contact.groupId" class="form-control">
                         <option value="">Select a Group</option>
                         <option [value]="group.id" *ngFor="let group of groups">{{ group.name }}</option>
                     </select>
@@ -44,9 +67,6 @@
                     <a routerLink="/contacts/admin" class="btn btn-dark ms-2">Close</a>
                 </div>
             </form>
-        </div>
-        <div class="col-sm-4">
-            <img [src]="contact.photo" alt="" class="contact-img">
         </div>
     </div>
 </div>
