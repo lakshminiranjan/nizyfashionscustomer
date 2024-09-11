@@ -68,7 +68,7 @@
             </form>
         </div>
         <div class="col-sm-4">
-            <img [src]="contact.photo" alt="" class="contact-img">
+            <img [src]="contact.photo | safe: 'url'" alt="" class="contact-img">
         </div>
     </div>
 </div>
