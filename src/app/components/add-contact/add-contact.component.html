@@ -1,3 +1,4 @@
+
 <div class="container mt-3">
     <div class="row">
         <div class="col">
@@ -28,42 +29,47 @@
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <form (submit)="submitUpdate()">
-        <div class="mb-2">
-          <input required [(ngModel)]="contact.name" name="name" type="text" class="form-control" placeholder="Name">
-        </div>
-        <div class="mb-2">
-          <input required type="file" (change)="onFileSelected($event)" class="form-control">
-        </div>
-        <div class="mb-2">
-          <input required [(ngModel)]="contact.email" name="email" type="email" class="form-control" placeholder="Email">
-        </div>
-        <div class="mb-2">
-          <input required [(ngModel)]="contact.mobile" name="mobile" type="number" class="form-control" placeholder="Mobile">
-        </div>
-        <div class="mb-2">
-          <input required [(ngModel)]="contact.company" name="Shirt_measurements" type="text" class="form-control" placeholder="Shirt_measurements">
-        </div>
-        <div class="mb-2">
-          <input required [(ngModel)]="contact.title" name="Pant_measurements" type="text" class="form-control" placeholder="Pant_measurements">
-        </div>
-        <div class="mb-2">
-          <select required [(ngModel)]="contact.groupId" name="groupId" class="form-control">
-            <option value="">Select a Group</option>
-            <option [value]="group.id" *ngFor="let group of groups">{{ group.name }}</option>
-          </select>
-        </div>
-        <div class="mb-2">
-          <input type="submit" class="btn btn-danger" value="Update">
-          <a routerLink="/contacts/admin" class="btn btn-dark ms-2">Close</a>
-        </div>
-      </form>
-    </div>
-    <div class="col-sm-4">
-      <img [src]="contact.photo" alt="" class="contact-img">
-    </div>
-  </div>
-</div>
+    <div class="row">
+        <div class="col-sm-4">
+            <form (submit)="createSubmit()">
+                <div class="mb-2">
+                    <input required="true" type="text" class="form-control" placeholder="Name" [(ngModel)]="contact.name" name="name">
 
+                </div>
+                <div class="mb-2">
+                    <!-- <input required="true" type="text" class="form-control" placeholder="Photo Url" [(ngModel)]="contact.photo" name="photo"> -->
+                    <input required="true" type="file" (change)="onFileSelected($event)" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <input required="true" type="text" class="form-control" placeholder="Email" [(ngModel)]="contact.email" name="email">
+
+                </div>
+                <div class="mb-2">
+                    <input required="true" type="text" class="form-control" placeholder="Mobile" [(ngModel)]="contact.mobile" name="mobile">
+
+                </div>
+                <div class="mb-2">
+                    <input required="true" type="text" class="form-control" placeholder="Shirt_measurememts" [(ngModel)]="contact.company" name="Shirt_measurements">
+
+                </div>
+                <div class="mb-2">
+                    <input required="true" type="text" class="form-control" placeholder="Pant_measurememts" [(ngModel)]="contact.title" name="Pant_measurements">
+
+                </div>
+                <div class="mb-2">
+                    <select required = "true" [(ngModel)]="contact.groupId" name="contact.groupId"  class="form-control" *ngIf="groups.length > 0">
+                        <option value="">Select a Group</option>
+                        <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <input type="submit" class="btn btn-danger" value="Create">
+                    <a routerLink="/contacts/admin" class="btn btn-dark ms-2">Close</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <img [src]="contact.photo ? contact.photo : '/assets/defaultt.png'" alt="" class="contact-img">
+        </div>
+    </div>
+</div>
