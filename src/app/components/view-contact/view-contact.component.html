@@ -2,15 +2,21 @@
     <div class="row">
         <div class="col">
             <p class="h3 fw-bold text-danger">View Contacts</p>
-            <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi, obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa! Harum, eum blanditiis?</p>
+            <p class="fst-italic">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi,
+                obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa!
+                Harum, eum blanditiis?
+            </p>
         </div>
     </div>
 </div>
 
+<!-- Loading Spinner -->
 <div *ngIf="loading">
     <app-spinner></app-spinner>
 </div>
 
+<!-- Error Message -->
 <div *ngIf="!loading && errorMessage">
     <div class="container">
         <div class="row">
@@ -21,30 +27,32 @@
     </div>
 </div>
 
-
-
+<!-- Contact Details -->
 <div class="container" *ngIf="!loading && isNotEmpty()">
-    <div class="row align-items-center">
-        <div class="col-sm-4">
-            <img [src]="contact.photo" alt="" class="contact-img-big"> <!-- Use the 'contact.photo' to handle null values -->
+    <div class="row align-items-center justify-content-center text-center text-sm-start">
+        <!-- Image Section -->
+        <div class="col-12 col-sm-4 mb-3 mb-sm-0">
+            <img [src]="contact.photo" alt="" class="contact-img-big mx-auto d-block"> <!-- Ensuring the image is centered -->
         </div>
-        <div class="col-sm-6">
+
+        <!-- Contact Details Section -->
+        <div class="col-12 col-sm-6 text-start">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-danger">Name: <span class="fw-bold">{{contact.name}}</span></li>
                 <li class="list-group-item list-group-item-danger">Mobile: <span class="fw-bold">{{contact.mobile}}</span></li>
                 <li class="list-group-item list-group-item-danger">Email: <span class="fw-bold">{{contact.email}}</span></li>
                 <li class="list-group-item list-group-item-danger">Shirt_measurements: <span class="fw-bold">{{contact.company}}</span></li>
                 <li class="list-group-item list-group-item-danger">Pant_measurements: <span class="fw-bold">{{contact.title}}</span></li>
-                <li class="list-group-item list-group-item-danger">Group Name: <span class="fw-bold">{{group.name}}</span></li> <!-- Use 'group.name' instead of 'group?.name' since 'group' is not null or undefined here -->
+                <li class="list-group-item list-group-item-danger">Group Name: <span class="fw-bold">{{group.name}}</span></li>
             </ul>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col">
+
+    <!-- Back Button -->
+    <div class="row mt-3 p-6">
+        <div class="col text-start text-sm-start">
             <a routerLink="/contacts/admin" class="btn btn-danger">
                 <i class="fa fa-arrow-alt-circle-left"></i> Back</a>
         </div>
     </div>
 </div>
-
-
