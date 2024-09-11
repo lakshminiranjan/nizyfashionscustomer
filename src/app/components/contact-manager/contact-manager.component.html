@@ -61,7 +61,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-4">
                             <!-- <img [src]="contact.photo" alt="" class="contact-img"> -->
-                            <img [src]="contact.photo || 'assets/default-image.png'" alt="" class="contact-img">
+                            <img [src]="contact.photo ? contact.photo : '/assets/defaultt.png'" alt="" class="contact-img">
 
                         </div>
                         <div class="col-sm-7">
