@@ -58,10 +58,16 @@ public submitUpdate() {
 
   public selectedFile: File | null = null;
 
-onFileSelected(event: any) {
-  this.selectedFile = event.target.files[0] as File;
-}
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0] as File;
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.contact.photo = e.target.result;
+    };
+    reader.readAsDataURL(this.selectedFile);
+  }
 
 
+  public uploadService: any; 
 
 }
