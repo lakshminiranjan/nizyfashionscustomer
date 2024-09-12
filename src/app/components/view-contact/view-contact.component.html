@@ -1,8 +1,8 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col">
-            <p class="h3 fw-bold text-danger">View Contacts</p>
-            <p class="fst-italic">
+            <p class="h3 fw-bold text-danger text-center text-sm-start">View Contacts</p>
+            <p class="fst-italic text-center text-sm-start">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi,
                 obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa!
                 Harum, eum blanditiis?
@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <p class="h4 text-danger fw-bold">{{errorMessage}}</p>
+                <p class="h4 text-danger fw-bold text-center">{{errorMessage}}</p>
             </div>
         </div>
     </div>
@@ -29,14 +29,14 @@
 
 <!-- Contact Details -->
 <div class="container" *ngIf="!loading && isNotEmpty()">
-    <div class="row align-items-center justify-content-center text-center text-sm-start">
+    <div class="row align-items-center justify-content-center text-center">
         <!-- Image Section -->
-        <div class="col-12 col-sm-4 mb-3 mb-sm-0">
-            <img [src]="contact.photo" alt="" class="contact-img-big mx-auto d-block"> <!-- Ensuring the image is centered -->
+        <div class="col-12 mb-3">
+            <img [src]="contact.photo" alt="" class="contact-img-big mx-auto d-block rounded-circle" style="max-width: 150px;">
         </div>
 
         <!-- Contact Details Section -->
-        <div class="col-12 col-sm-6 text-start">
+        <div class="col-12 col-sm-8 text-start">
             <ul class="list-group">
                 <li class="list-group-item list-group-item-danger">Name: <span class="fw-bold">{{contact.name}}</span></li>
                 <li class="list-group-item list-group-item-danger">Mobile: <span class="fw-bold">{{contact.mobile}}</span></li>
@@ -49,10 +49,11 @@
     </div>
 
     <!-- Back Button -->
-    <div class="row mt-3 p-6">
-        <div class="col text-start text-sm-start">
+    <div class="row mt-3">
+        <div class="col text-center">
             <a routerLink="/contacts/admin" class="btn btn-danger">
-                <i class="fa fa-arrow-alt-circle-left"></i> Back</a>
+                <i class="fa fa-arrow-alt-circle-left"></i> Back
+            </a>
         </div>
     </div>
 </div>
