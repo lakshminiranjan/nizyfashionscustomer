@@ -1,8 +1,8 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col">
-            <p class="h3 fw-bold text-danger text-center text-md-start">Add Contacts</p>
-            <p class="fst-italic text-center text-md-start">
+            <p class="h3 fw-bold text-danger text-start text-md-start">Add Contacts</p>
+            <p class="fst-italic text-start text-md-start">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, possimus. Quos numquam aperiam animi,
                 obcaecati, dicta sunt ab distinctio blanditiis, odio aut delectus laudantium asperiores expedita culpa! Harum, eum blanditiis?
             </p>
@@ -29,15 +29,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <!-- Image Section -->
-        <div class="col-12 col-md-6 text-center order-1 order-md-1 mb-4">
-            <img [src]="contact.photo ? contact.photo : '/assets/defaultt.png'" 
-                 alt="Contact Image" 
-                 class="contact-img img-fluid rounded mx-auto d-block" 
-                 style="max-width: 200px;">
+        <div class="col-12 col-md-6 text-center order-1 order-md-2 mb-4">
+            <img [src]="contact.photo ? contact.photo : '/assets/defaultt.png'" alt="Contact Image" class="contact-img img-fluid rounded" style="max-width: 200px;">
         </div>
 
         <!-- Form Section -->
-        <div class="col-12 col-md-6 order-2 order-md-2">
+        <div class="col-12 col-md-6 order-2 order-md-1">
             <form (submit)="createSubmit()">
                 <div class="mb-2">
                     <input required="true" type="text" class="form-control" placeholder="Name" [(ngModel)]="contact.name" name="name">
